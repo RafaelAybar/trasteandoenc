@@ -3,10 +3,12 @@
 int main() {
     printf("Introduce tu edad \n");
     int edad;
-    scanf("%s", &edad);
-    if (edad < 60){
+    edad = 0;
+    scanf("%d", &edad);
+    printf("Tu edad es %d\n", edad);
+
+    if (edad < 60)
         printf("Eres joven");
-    }
     else
         printf("No eres joven");
 
