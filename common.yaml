@@ -1,0 +1,20 @@
+- name: repos
+  become: yes
+  become_user: root
+  hosts: all
+  tasks:
+    - name: paquetes previos
+      apt:
+        name: apt-transport-https
+        state: present
+        #update_cache: yes
+
+    - name: clave repo elastic
+      apt_key:
+        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+        id: 46095ACC8548582C1A2699A9D27D666CD88E42B4
+
+    - name: repositorios
+      apt_repository:
+        repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+        state: present
